@@ -12,6 +12,12 @@ if (LINE.length < 1 || LINE.length > 240) {
   throw new Error(`entry line is ${LINE.length} chars, outside the 1-240 gate`);
 }
 
+// One clean sentence, no padding, no second idea: exactly one period,
+// no internal newline, and it must end with that period.
+if (LINE.includes("\n") || (LINE.match(/\./g) ?? []).length !== 1 || !LINE.endsWith(".")) {
+  throw new Error("entry line is not exactly one sentence");
+}
+
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", LINE + "\n", "utf8");
 

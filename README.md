@@ -16,4 +16,4 @@ Run it with Node 22.18+:
 node main.ts
 ```
 
-Deterministic: repeated runs write byte-identical output (`/output/entry.txt`), and the program reads the file back after writing to refuse any mismatch.
+Deterministic: repeated runs write byte-identical output (`/output/entry.txt`, sha256 `5f49d2512109892be5614c54771a4fb8a0cf25cf182756edd0656e448599ebe9`), and the program reads the file back after writing to refuse any mismatch. It also refuses any line outside the 1–240 gate or that is not exactly one sentence.
